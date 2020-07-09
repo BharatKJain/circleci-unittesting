@@ -12,9 +12,10 @@ workflows:
     jobs:
       - guidion-testing:
           # context: guidion-bi-serverless
-          filters:
+        filters:
           branches:
-            only: master
+            only:
+              - master
 # commands:
 #   testing:
 #     description: "Python unittest job"
