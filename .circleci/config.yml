@@ -26,9 +26,6 @@ commands:
       - run:
           name: Install test job dependencies
           command: python3 -m pip install -r requirements.txt
-      #   - run:
-      #       name: Run the tests
-      #       command: python3 << parameters.FILELOCATION >>
       - run:
           name: Make it executable
           command: chmod +x .circleci/run_unittests.sh
