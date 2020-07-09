@@ -8,6 +8,8 @@ jobs:
           type: approval
       - testing:
           FILELOCATION: test.py
+          requires:
+            - hold
 workflows:
   publish:
     jobs:
