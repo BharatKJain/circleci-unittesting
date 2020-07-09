@@ -5,7 +5,7 @@ jobs:
       - image: circleci/python:3.7.8
     steps:
       - testing:
-          FILELOCATION: check
+          FILELOCATION: test.py
     #   - checkout
     #   - run:
     #       command: python3 -m pip install -r requirements.txt
@@ -31,4 +31,4 @@ commands:
       - run:
           command: python3 -m pip install -r requirements.txt
       - run:
-          command: python3 test.py
+          command: python3 << parameters.FILELOCATION >>
