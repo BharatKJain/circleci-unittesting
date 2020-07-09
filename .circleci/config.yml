@@ -5,12 +5,7 @@ jobs:
       - image: circleci/python:3.7.8
     steps:
       - testing:
-          FILELOCATION: check/test.py
-    #   - checkout
-    #   - run:
-    #       command: python3 -m pip install -r requirements.txt
-    #   - run:
-    #       command: python3 test.py
+          FILELOCATION: test.py
 workflows:
   publish:
     jobs:
@@ -19,7 +14,7 @@ workflows:
         filters:
           branches:
             only:
-              - master
+              - develop
 commands:
   testing:
     parameters:
@@ -29,6 +24,14 @@ commands:
     steps:
       - checkout
       - run:
+          name: Install test job dependencies
           command: python3 -m pip install -r requirements.txt
+      #   - run:
+      #       name: Run the tests
+      #       command: python3 << parameters.FILELOCATION >>
       - run:
-          command: python3 << parameters.FILELOCATION >>
+          name: Make it executable
+          command: chmod +x .circleci/run_unittests.sh
+      - run:
+          name: Run the file
+          command: .circleci/run_unittests.sh
