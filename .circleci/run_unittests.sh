@@ -5,4 +5,5 @@ for d in */ ; do
     python3 -m unittest test.py
 done
 cd -
+cd -
 ls
