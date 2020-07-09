@@ -3,7 +3,7 @@ jobs:
   guidion-testing:
     docker:
       - image: circleci/python:3.7.8
-    steps:
+    jobs: #change to steps
       - hold:
           type: approval
       - testing:
