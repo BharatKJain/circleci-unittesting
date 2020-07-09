@@ -7,10 +7,13 @@ jobs:
       - testing:
           FILELOCATION: test.py
 workflows:
-  version: 2  
+  version: 2
   publish:
     jobs:
-      - guidion-testing
+      - guidion-testing:
+          filters:
+            branches:
+              only: master
       - hold:
           type: approval
           requires:
