@@ -10,11 +10,10 @@ workflows:
   publish:
     jobs:
       - guidion-testing:
-          - testing
-          - hold:
-              type: approval
-              requires:
-                - testing
+      - hold:
+          type: approval
+          requires:
+            - testing
 
 commands:
   testing:
