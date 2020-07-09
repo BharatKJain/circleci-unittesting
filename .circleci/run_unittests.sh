@@ -6,4 +6,3 @@ for d in */ ; do
 done
 cd -
 cd -
-ls
