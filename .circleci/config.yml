@@ -6,8 +6,6 @@ jobs:
     steps: #change to steps
       - testing:
           FILELOCATION: test.py
-          requires:
-            - hold
       - hold:
           type: approval
           requires:
