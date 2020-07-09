@@ -7,6 +7,7 @@ jobs:
       - testing:
           FILELOCATION: test.py
 workflows:
+  version: 2  
   publish:
     jobs:
       - guidion-testing
@@ -14,7 +15,6 @@ workflows:
           type: approval
           requires:
             - guidion-testing
-      - guidion-testing
 
 commands:
   testing:
