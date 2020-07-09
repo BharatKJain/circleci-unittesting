@@ -1,15 +1,4 @@
 version: 2.1
-
-workflows:
-  version: 2
-  publish:
-    jobs:
-      - guidion-testing:
-        # context: guidion-bi-serverless
-        filters:
-          branches:
-            only: master
-
 jobs:
   guidion-testing:
     docker:
@@ -18,6 +7,14 @@ jobs:
       - checkout
       - run:
         command: python3 -m pip install -r requirements.txt
+workflows:
+  publish:
+    jobs:
+      - guidion-testing:
+          # context: guidion-bi-serverless
+          filters:
+          branches:
+            only: master
 # commands:
 #   testing:
 #     description: "Python unittest job"
