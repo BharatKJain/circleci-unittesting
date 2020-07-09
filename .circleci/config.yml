@@ -1,0 +1,27 @@
+version: 2.1
+
+workflows:
+  version: 2
+  publish:
+    jobs:
+      - guidion-testing:
+        # context: guidion-bi-serverless
+        filters:
+          branches:
+            only: master
+
+jobs:
+  guidion-testing:
+
+    docker:
+      - image: python:3.7-slim-buster
+    steps:
+      - checkout
+      - python3 -m pip install -r requirements.txt
+
+# commands:
+#   testing:
+#     description: "Python unittest job"
+#     steps:
+#       - checkout
+#       - run:
