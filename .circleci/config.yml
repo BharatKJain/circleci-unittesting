@@ -3,26 +3,19 @@ jobs:
   guidion-testing:
     docker:
       - image: circleci/python:3.7.8
-    steps: #change to steps
+    steps:
       - testing:
           FILELOCATION: test.py
-      - hold:
-          type: approval
-          requires:
-            - testing
-      - testing:
-          FILELOCATION: test.py
-          requires:
-            - hold
 workflows:
   publish:
     jobs:
       - guidion-testing:
-          # context: guidion-bi-serverless
-        filters:
-          branches:
-            only:
-              - develop
+          - testing
+          - hold:
+              type: approval
+              requires:
+                - testing
+
 commands:
   testing:
     parameters:
