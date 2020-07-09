@@ -9,11 +9,11 @@ jobs:
 workflows:
   publish:
     jobs:
-      - guidion-testing:
+      - guidion-testing
       - hold:
           type: approval
           requires:
-            - testing
+            - guidion-testing
 
 commands:
   testing:
