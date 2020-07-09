@@ -4,11 +4,13 @@ jobs:
     docker:
       - image: circleci/python:3.7.8
     steps:
-      - checkout
-      - run:
-          command: python3 -m pip install -r requirements.txt
-      - run:
-          command: python3 test.py
+      - testing:
+          FILELOCATION: check
+    #   - checkout
+    #   - run:
+    #       command: python3 -m pip install -r requirements.txt
+    #   - run:
+    #       command: python3 test.py
 workflows:
   publish:
     jobs:
@@ -18,9 +20,15 @@ workflows:
           branches:
             only:
               - master
-# commands:
-#   testing:
-#     description: "Python unittest job"
-#     steps:
-#       - checkout
-#       - run:
+commands:
+  testing:
+    parameters:
+      FILELOCATION:
+        type: string
+    description: "Python unittest job"
+    steps:
+      - checkout
+      - run:
+          command: python3 -m pip install -r requirements.txt
+      - run:
+          command: python3 test.py
