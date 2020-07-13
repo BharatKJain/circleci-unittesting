@@ -1,5 +1,5 @@
 import unittest
-from main imp
+import main
 class TestStringMethods(unittest.TestCase):
 
     def test_upper(self):
