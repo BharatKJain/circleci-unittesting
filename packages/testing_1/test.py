@@ -1,5 +1,5 @@
 import unittest
-from .main import
+from .main import func
 class TestStringMethods(unittest.TestCase):
 
     def test_upper(self):
