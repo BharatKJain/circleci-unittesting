@@ -18,4 +18,5 @@ class TestStringMethods(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    raise ValueError
+    # raise ValueError
+    exit(123)
