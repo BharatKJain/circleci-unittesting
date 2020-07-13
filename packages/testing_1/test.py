@@ -4,6 +4,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
+        exit(123)
 
     def test_isupper(self):
         self.assertTrue('FOO'.isupper())
