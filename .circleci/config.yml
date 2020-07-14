@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   guidion-testing:
     docker:
-      - image: circleci/python:3.7.8
+      - image: circleci/python:3.6.0
     steps:
       - testing:
           FILELOCATION: test.py

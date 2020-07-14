@@ -4,5 +4,5 @@ grep FAILED output.txt
 if [ $? -eq 0 ]
 then
    echo "TESTs Failed"
-   exit 125
+   exit 123
 fi
